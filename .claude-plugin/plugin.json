@@ -1,0 +1,7 @@
+{
+  "name": "brain",
+  "version": "0.1.0",
+  "description": "Scaffolds and manages a structured project brain for AI agents in microservice repositories",
+  "author": { "name": "brain" },
+  "keywords": ["brain", "knowledge", "microservices", "documentation", "adr"]
+}

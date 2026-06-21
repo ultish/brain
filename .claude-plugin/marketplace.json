@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "brain",
+  "version": "0.1.0",
+  "description": "Scaffolds and manages a structured project brain for AI agents in microservice repositories",
+  "owner": {
+    "name": "brain"
+  },
+  "plugins": [
+    {
+      "name": "brain",
+      "description": "Scaffolds and manages a structured project brain for AI agents in microservice repositories",
+      "version": "0.1.0",
+      "author": {
+        "name": "brain"
+      },
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
