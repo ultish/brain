@@ -1,7 +1,6 @@
 ---
 name: adr
 description: Create a new Architecture Decision Record (ADR) in this project's brain. Use when asked to "record a decision", "create an ADR", "document a decision", or "add a decision" to the brain.
-version: 0.1.0
 ---
 
 # Brain ADR
@@ -42,7 +41,7 @@ Full filename: `brain/decisions/ADR-{NNN}-{kebab-title}.md`
 
 ## Step 5 — Create the ADR file
 
-Use today's date for `{YYYY-MM-DD}`. Read team from `SERVICE.md` if available.
+Use today's date for `{YYYY-MM-DD}`. Read team from `README.md` (`## Service` section) if available.
 
 ```
 # ADR-{NNN}: {Title}
@@ -80,5 +79,5 @@ for an agent to decide whether to read the full file without opening it.
 ## Step 7 — Confirm
 
 Report the ADR number, filename, and that the index was updated.
-Suggest linking to this ADR from `SERVICE.md` using `[[adr:ADR-{NNN}-{kebab-title}]]`
-if the decision affects this service's contracts or dependencies.
+Suggest linking to this ADR from `README.md` (the `see_also:` list in the `## Service` section)
+using `[[adr:ADR-{NNN}-{kebab-title}]]` if the decision affects this service's contracts or dependencies.

@@ -1,7 +1,6 @@
 ---
 name: init
 description: Initialize a structured project brain in the current repository. Use when asked to "init brain", "set up brain", "scaffold brain", or "create brain" for a project or service.
-version: 0.1.0
 ---
 
 # Brain Init
@@ -48,7 +47,7 @@ This file loads automatically when Claude Code opens this project.
 Read it first, then navigate to relevant brain files for context.
 
 ## This service
-Read SERVICE.md for service identity, dependencies, and contracts.
+Read README.md (the ## Service section) for service identity, dependencies, and contracts.
 
 ## Memory
 Your memory file for this project is brain/memory.md.
@@ -71,7 +70,9 @@ For now, check the referenced service's SERVICE.md in its own repo.
 
 ---
 
-### SERVICE.md
+### README.md
+
+**If `README.md` does not exist** — create it with the full template:
 
 ```
 # {service-name}
@@ -94,6 +95,29 @@ see_also: []
 
 ## Summary
 [One paragraph describing what this service does and why it exists]
+```
+
+**If `README.md` already exists** — append the following block at the end of the file:
+
+```
+
+## Service
+
+status: {status}
+domain: [[domain:{domain}]]
+
+depends_on: []
+  # - [[svc:service-name]]
+
+exposes: []
+  # - METHOD /path (protocol)
+
+events:
+  publishes: []
+  subscribes: []
+
+see_also: []
+  # - [[adr:ADR-001]]
 ```
 
 ---
@@ -214,6 +238,6 @@ Report:
 - Which files were created
 - Which files were skipped (already existed)
 - Remind the user to:
-  - Fill in `SERVICE.md` with actual dependencies, endpoints, and events
+  - Fill in `README.md` with actual dependencies, endpoints, and events
   - Add context in `brain/context/overview.md`
   - Run `/brain:adr` to record the first architectural decision
