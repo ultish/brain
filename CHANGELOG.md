@@ -5,6 +5,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). SemVer.
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-06-21
+
+### Added
+- `brain:sync-engram` skill — syncs brain files (ADRs, context) into Engram as
+  searchable memories; uses a `brain/engram-sync.md` manifest to track Engram IDs
+  for idempotent re-syncs.
+
+### Changed
+- `PLAN.md` — added Phase 1.5 design for multi-repo GitLab shallow-clone sync
+  driven by a config file and external script/pipeline.
+
 ## [0.4.0] — 2026-06-21
 
 ### Changed

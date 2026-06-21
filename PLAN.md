@@ -187,6 +187,52 @@ Health check on the brain. Reports:
 - When memory.md was last updated (via git log)
 - Any broken [[links]] (references to files that don't exist locally)
 
+### Future: Engram Integration — Multi-Repo Sync
+
+`brain:sync-engram` (built) handles per-repo sync. The cross-repo problem requires
+a separate sync driver that does not belong inside a per-repo Claude Code skill.
+
+**Design: GitLab-backed shallow-clone sync**
+
+A config file (e.g. `~/.config/brain/sync.yaml`) lists GitLab groups or individual
+repos to sync:
+
+```yaml
+gitlab_url: https://gitlab.example.com
+token_env: GITLAB_TOKEN        # PAT with read_repository scope
+repos:
+  - group: platform             # sync entire GitLab group
+  - project: infra/auth-service # or individual projects
+clone_root: /tmp/brain-sync    # shallow clones land here
+```
+
+A sync script (or scheduled CI job) runs:
+1. For each configured repo, `git clone --depth 1 <url> <clone_root>/<service>`
+2. In each cloned dir, invoke the Engram MCP directly (or via `engram save` CLI)
+   to push brain files — same logic as `brain:sync-engram` but driven externally.
+3. Delete the clone when done (shallow — disk cost is minimal).
+
+The sync script runs outside Claude Code (a plain shell script, a Go CLI, or a
+GitLab scheduled pipeline). Claude Code is not the right host for cross-repo
+operations that iterate over 100s of repos.
+
+**Idempotency at scale**
+
+The per-repo `brain/engram-sync.md` manifest is committed in each repo. The sync
+script reads it (via the clone) to know which entries to update vs. create, then
+writes the updated manifest back as a commit. This keeps the manifest authoritative
+even when synced from CI rather than from a developer's machine.
+
+**Trigger options**
+- Scheduled GitLab pipeline (nightly) — no developer action needed
+- Webhook on push to main — syncs immediately when brain files change
+- Manual: `brain-sync --all` from a developer machine
+
+This is Phase 1.5 — no new infrastructure needed, just a script and a PAT.
+Build this before investing in the MCP federation server below.
+
+---
+
 ### Future: Phase 2 — Shared MCP Server
 
 When local brain is insufficient for cross-service queries, add:
