@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). SemVer.
 
 ## [Unreleased]
 
+## [0.3.1] — 2026-06-21
+
+### Added
+- Slash commands (`/brain:init`, `/brain:adr`, `/brain:log`, `/brain:curate`) in
+  `commands/` — thin wrappers that invoke the corresponding skill so users can
+  trigger them directly from the `/` command picker.
+
 ## [0.3.0] — 2026-06-21
 
 ### Added
