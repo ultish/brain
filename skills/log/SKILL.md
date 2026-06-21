@@ -1,7 +1,6 @@
 ---
 name: log
 description: Reflect on the current session and persist what was learned. Use when asked to "log the session", "save what we learned", "record decisions from this session", or "update the brain". Writes pending ADR stubs and memory entries without requiring the user to remember what happened.
-version: 0.1.0
 ---
 
 # Brain Log
@@ -21,6 +20,7 @@ If not, tell the user to run `/brain:init` first and stop.
 Read back through the current conversation. Identify:
 
 **ADR candidates** — things that qualify as an architectural decision:
+
 - A technology, library, or framework was chosen (or rejected)
 - A structural or design pattern was adopted
 - A tradeoff was explicitly made and the reasoning discussed
@@ -28,9 +28,10 @@ Read back through the current conversation. Identify:
 - Something was decided that a future agent would need to know not to undo
 
 **Memory candidates** — smaller learnings that don't need a full ADR:
+
 - A gotcha, footgun, or non-obvious behaviour discovered
 - A convention established for this codebase
-- Context that explains *why* something is the way it is
+- Context that explains _why_ something is the way it is
 - Something the user explicitly said to remember
 
 ## Step 3 — Write pending ADR stubs
