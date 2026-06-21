@@ -17,6 +17,82 @@ rejected. That context is lost between sessions and across engineers.
 `brain` solves this by giving agents a structured place to find and record
 institutional knowledge — and skills to keep it up to date automatically.
 
+## Getting started
+
+**1. Install the plugin**, then open a service repo and run:
+
+```
+/brain:init
+```
+
+Answer two questions (domain, status) and the full structure is scaffolded.
+Fill in the `## Service` block in `README.md` with real dependencies and endpoints.
+Commit everything — the brain travels with the code.
+
+**2. Tell Claude about any decisions that already exist.** If the repo has history,
+spend five minutes in a session describing the key choices that were made. Then run
+`/brain:log` and Claude will write them up as pending ADR stubs. Run `/brain:adr`
+to formalise each one.
+
+That's the setup. From here the workflow is lightweight.
+
+---
+
+## Day-to-day workflow
+
+### Starting a session
+
+You don't need to do anything. Claude loads `CLAUDE.md` automatically, which routes
+it to `brain/memory.md` and the index files. It arrives with context.
+
+### During a session
+
+Work normally. When you make a decision — choosing a library, settling on a pattern,
+agreeing a tradeoff — just say it out loud in the conversation. You don't need to
+stop and file anything. Claude is listening.
+
+### Ending a session
+
+Before closing, run:
+
+```
+/brain:log
+```
+
+Claude scans the conversation, extracts decisions and learnings, writes pending ADR
+stubs to `brain/decisions/index.md`, and appends notes to `brain/memory.md`. Review
+what it wrote, commit it.
+
+### Formalising decisions
+
+Pending ADR stubs are placeholders — one-liners in the index with a `pending-` prefix.
+When you want a full record (context, reasoning, alternatives), run:
+
+```
+/brain:adr
+```
+
+Claude will see the pending stubs and offer to work through them. A full ADR takes
+about two minutes per decision.
+
+You don't need to do this immediately. Stubs are useful on their own — they tell a
+future agent "a decision was made here, ask about it." Formalise when the decision
+is significant enough to warrant the detail.
+
+### When memory gets large
+
+`/brain:log` warns you when `brain/memory.md` exceeds the configured threshold
+(default 50 entries). When that happens, run:
+
+```
+/brain:curate
+```
+
+Claude proposes what to deduplicate, merge, or promote to a proper context file.
+You confirm before anything is written. Takes a few minutes, keeps the file useful.
+
+---
+
 ## Installation
 
 Install via the Claude Code marketplace or clone and point Claude Code at this
