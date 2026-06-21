@@ -62,11 +62,25 @@ Format each entry as a tight bullet:
 
 Do not add entries that are already captured (same fact, same section).
 
-## Step 5 — Report
+## Step 5 — Check memory size
+
+After appending, count the total number of bullet entries in `brain/memory.md`.
+
+Read the threshold from `brain/config.md` (`memory_warn_threshold` key).
+If `brain/config.md` does not exist or the key is absent, use a default of **50**.
+
+If the entry count exceeds the threshold, add a warning to the report:
+
+```
+⚠ brain/memory.md has N entries (threshold: X) — run `/brain:curate` to condense it.
+```
+
+## Step 6 — Report
 
 Tell the user:
 
 - How many pending ADR stubs were added (list their titles)
 - How many memory entries were appended (list them)
 - If nothing was found worth logging, say so explicitly rather than writing noise
+- The memory size warning if the threshold was exceeded
 - Remind them: run `/brain:adr` to formalise any pending stubs into full ADRs

@@ -122,6 +122,16 @@ see_also: []
 
 ---
 
+### brain/config.md
+
+```
+# Brain Config
+
+memory_warn_threshold: 50
+```
+
+---
+
 ### brain/memory.md
 
 ```

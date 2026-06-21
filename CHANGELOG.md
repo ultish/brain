@@ -5,6 +5,19 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). SemVer.
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-06-21
+
+### Added
+- `brain:curate` skill — reviews `brain/memory.md`, proposes deduplication, merges,
+  promotions to `brain/context/` or pending ADR stubs, and removals; always confirms
+  with the user before writing.
+- `brain/config.md` scaffolded by `brain:init` with a configurable
+  `memory_warn_threshold` (default 50).
+
+### Changed
+- `brain:log` now checks entry count after appending and warns when
+  `memory_warn_threshold` is exceeded, prompting the user to run `/brain:curate`.
+
 ## [0.2.0] — 2026-06-21
 
 ### Added
