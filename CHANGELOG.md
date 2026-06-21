@@ -5,6 +5,12 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). SemVer.
 
 ## [Unreleased]
 
+## [0.3.2] — 2026-06-21
+
+### Fixed
+- `brain:init` CLAUDE.md template referenced `SERVICE.md` for cross-service links;
+  corrected to `README.md`.
+
 ## [0.3.1] — 2026-06-21
 
 ### Added

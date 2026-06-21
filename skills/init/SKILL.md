@@ -65,7 +65,7 @@ a [[link]] in memory.md pointing to the new file.
 ## Cross-service references
 Links to other services use [[svc:service-name]] syntax.
 These resolve once a shared brain MCP server is available.
-For now, check the referenced service's SERVICE.md in its own repo.
+For now, check the referenced service's README.md in its own repo.
 ```
 
 ---
