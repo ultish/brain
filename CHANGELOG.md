@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). SemVer.
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-06-21
+
+### Changed
+- `brain:init` CLAUDE.md template now instructs agents to consult the brain
+  indexes proactively before answering questions about architecture, decisions,
+  operations, or conventions — improving automatic routing without user prompting.
+
 ## [0.3.2] — 2026-06-21
 
 ### Fixed

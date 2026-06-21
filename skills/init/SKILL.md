@@ -57,6 +57,10 @@ to a proper file in brain/decisions/ or brain/context/ and leave
 a [[link]] in memory.md pointing to the new file.
 
 ## Finding information
+Before answering questions about this service's architecture, decisions,
+operations, or conventions, consult the relevant index below first — read the
+index, then drill down into the specific file. Do this proactively, even for
+questions that look code-only; a decision or constraint may be recorded here.
 - Memory and recent learnings: brain/memory.md
 - Decisions and ADRs: start at brain/decisions/index.md, then drill down
 - Context and architecture: start at brain/context/index.md, then drill down
